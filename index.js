@@ -4,7 +4,7 @@ require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const ObjectId=require('mongodb').ObjectId
 const app = express()
-const port = 5000
+const port =process.env.PORT || 8000
 
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.6azwl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
