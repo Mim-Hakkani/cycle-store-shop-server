@@ -51,7 +51,7 @@ client.connect(err => {
 
  app.get('/myorder/:emailid',async(req,res)=>{
    const mail = req.params.emailid
-   const result = await ordercollection.find({email:mail}).toArray();
+   const result = await ordercollection.find({userEmail:mail}).toArray();
    res.json(result)
 
  })
@@ -105,7 +105,7 @@ client.connect(err => {
   const filter={_id:ObjectId(id)}
   const updateStatus = {
       $set: {
-        status:"Approved"
+        status:"Shipped"
       }
     };
     const result=await ordercollection.updateOne(filter,updateStatus)
