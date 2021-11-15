@@ -7,6 +7,10 @@ const app = express()
 const port =process.env.PORT || 8000
 
 
+app.use(cors())
+app.use(express.json());
+
+
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.6azwl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 
@@ -153,8 +157,7 @@ app.put('/users/admin', async (req, res) => {
 
   });
 
-app.use(cors())
-app.use(express.json());
+
 
 
 
